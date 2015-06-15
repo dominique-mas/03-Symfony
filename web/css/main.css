@@ -1,0 +1,26 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 15 juin 2015, 13:55:46
+    Author     : Dominique
+*/
+
+@font-face {
+    font-family: 'gooddogregular';
+    src: url('../fonts/GoodDog-webfont.eot');
+    src: url('../fonts/GoodDog-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/GoodDog-webfont.woff') format('woff'),
+         url('../fonts/GoodDog-webfont.ttf') format('truetype'),
+         url('../fonts/GoodDog-webfont.svg#gooddogregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.mainTitle {
+    text-align: center;
+    font-family: 'gooddogregular', Arial, serif;
+    color: #0066FF;
+}

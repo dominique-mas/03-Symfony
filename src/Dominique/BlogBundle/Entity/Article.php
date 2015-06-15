@@ -90,7 +90,7 @@ class Article
     public function setTitle($title)
     {
         $this->title = $title;
-
+        // Les setters doivent renvoyer $this (appels chaînés de fonctions)
         return $this;
     }
 

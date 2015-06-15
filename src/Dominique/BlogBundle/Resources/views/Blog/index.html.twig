@@ -7,7 +7,15 @@
     <ul class='list-inline'>
         {% for article in listeArticles %}
             <li class="bg-info">
+                <div>
+                     {% if article.image is not null %}
+                        <img src="{{asset('images/')}}{{article.image.url}}" 
+                            alt="{{article.image.alt}}" 
+                            height='auto' width='80px' />
+                        
+                    {% endif %}
                 <a href='{{path('dominique_blog_see', {'id': article.id})}}'>{{ article.title }}</a>
+                </div>
             </li>
             {% endfor %}
     </ul>

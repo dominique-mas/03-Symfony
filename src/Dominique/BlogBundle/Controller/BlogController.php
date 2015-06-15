@@ -8,6 +8,7 @@ use Dominique\BlogBundle\Entity\Image;
 use Dominique\BlogBundle\Entity\Comment;
 use Dominique\BlogBundle\Entity\Category;
 use Dominique\BlogBundle\Form\ArticleType;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 class BlogController extends Controller {
 
@@ -27,6 +28,13 @@ class BlogController extends Controller {
         return $this->render('DominiqueBlogBundle:Blog:index.html.twig', array('listeArticles' => $listeArticles));
     }
 
+    /**
+     * 
+     * @param type $id
+     * @return type
+     * Si les conventions sont respectées, le paramètre de atTemplate est optionnel.
+     * @Template("DominiqueBlogBundle:Blog:see.html.twig")
+     */
     public function seeAction($id) {
 
         $repArticle = $this->getDoctrine()->getManager()
@@ -42,7 +50,10 @@ class BlogController extends Controller {
         $repCategory = $this->getDoctrine()->getManager()
                 ->getRepository('DominiqueBlogBundle:Category');
 
-        return $this->render('DominiqueBlogBundle:Blog:see.html.twig', array('article' => $article, 'listeComments' => $listeComments));
+        //return $this->render('DominiqueBlogBundle:Blog:see.html.twig', 
+        //array('article' => $article, 'listeComments' => $listeComments));
+        //@Template permet de simplifier la ligne de retour.
+        return array('article' => $article, 'listeComments' => $listeComments);
     }
 
     public function addAction() {
