@@ -1,0 +1,4 @@
+services:
+#    dominique_blog.example:
+#        class: Dominique\BlogBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

@@ -1,0 +1,52 @@
+{% extends  "DominiqueBlogBundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }} - Index{% endblock %}
+
+{% block DominiqueBlog_body %}
+
+    <h2>Titre : {{article.title}}</h2>
+    <h3>Auteur : {{article.author}}</h3>
+    <p>Catégories : 
+        {% for category in article.categories %}
+            |{{category.name}}|
+        {% endfor %}
+    </p>
+    <p>Contenu : {{article.content}}</p>
+
+    {% if article.image %}
+        <p>Ceci est l'image associée : 
+            <img src="{{asset('images/')}}{{article.image.url}}" 
+                 alt="{{article.image.alt}}" 
+                 height='25%' width='25%'
+                 class="img-responsive img-thumbnail" />
+        </p>
+    {% else %}
+        <p>Il n'y a pas d'image associée à cet article.</p> 
+    {% endif %}
+
+    <p><b><font color="magenta">Méthode n°1 : liste des commentaires 
+            en objet</font></p></b>
+    {% if listeComments|length > 0 %}
+        <b>Commentaires :</b>
+        {% for comment in listeComments %}
+            <p>{{comment.id}} - {{comment.datePost|date('m/d/Y')}}
+                - <b>{{comment.author}}</b><br/>
+                <i>{{comment.content}}</i></p>
+        {% endfor %}
+    {% endif %}
+
+<p><b><font color="magenta">Méthode n°2 : liste des commentaires 
+        depuis l'objet article (inversion)</font></p></b>
+        {% if article.comments|length > 0 %}
+<b>Commentaires :</b>
+{% for comment in article.comments %}
+    <p>{{comment.id}} - {{comment.datePost|date('m/d/Y')}}
+        - <b>{{comment.author}}</b><br/>
+        <i>{{comment.content}}</i></p>
+    {% endfor %}
+{% endif %}
+
+<a href='{{path('dominique_blog_homepage')}}'>Retour</a>
+
+{% endblock %}
+

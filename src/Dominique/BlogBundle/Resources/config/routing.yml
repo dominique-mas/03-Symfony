@@ -1,0 +1,20 @@
+# Si plusieurs routes matchent, la 1ère est retenue 
+dominique_blog_homepage:
+    path: /
+    defaults: { _controller: DominiqueBlogBundle:Blog:index}
+
+dominique_blog_see:
+    path: /article/{id}
+    defaults: { _controller: DominiqueBlogBundle:Blog:see, id:1 }
+    requirements:
+        id: \d+
+        
+dominique_blog_add:
+    path: /article/add
+    defaults: { _controller: DominiqueBlogBundle:Blog:add}
+    
+#dominique_blog_modify:
+#    path: /article/modify/{id}
+#    defaults: { _controller: DominiqueBlogBundle:Blog:modify, id:1 }
+#    requirements:
+#        id: \d+

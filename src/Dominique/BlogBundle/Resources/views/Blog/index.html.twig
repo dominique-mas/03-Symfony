@@ -1,0 +1,15 @@
+{% extends  "DominiqueBlogBundle::layout.html.twig" %}
+
+{% block title %}{{ parent() }} - Index{% endblock %}
+
+{% block DominiqueBlog_body %}
+
+    <ul class='list-inline'>
+        {% for article in listeArticles %}
+            <li class="bg-info">
+                <a href='{{path('dominique_blog_see', {'id': article.id})}}'>{{ article.title }}</a>
+            </li>
+            {% endfor %}
+    </ul>
+
+{% endblock %}

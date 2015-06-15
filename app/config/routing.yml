@@ -1,0 +1,7 @@
+dominique_blog:
+    resource: "@DominiqueBlogBundle/Resources/config/routing.yml"
+    prefix:   /blog
+
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation

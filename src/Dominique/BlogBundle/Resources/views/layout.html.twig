@@ -1,0 +1,12 @@
+{% extends "::layout.html.twig" %}
+
+{% block title %}{{ parent() }} - Layout du BlogBundle{% endblock %}
+
+
+{% block body %}
+    <div class="page-header"><h1>Liste des articles</h1></div>
+    
+    {% block DominiqueBlog_body %}
+    {% endblock %}
+    
+{% endblock %}
